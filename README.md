@@ -1,12 +1,11 @@
-halfpenny // COINS API Javascript client
-========
+# halfpenny // COINS API Javascript client
 
 What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decimal_coin)), anyway?  Beyond an old-timey coin, halfpenny is the official javascript API client for the COINS platform.
 
-# alpha warning
+## alpha warning
 halfpenny is still in active development!  it is not ready for public usage
 
-# Peer Dependencies
+## peer dependencies
 
 ### request
 In order to keep the use of this client as flexible as possible, the client
@@ -14,9 +13,9 @@ needs to be initialized with a function that can be used to make XHR requests.
 The client was designed to work with the [request](https://www.npmjs.com/package/request)
 package, but it can be adapted to work with others (like browser-request, or xhr).
 
-# Configuration
+## configuration
 
-### Basic configuration:
+### basic configuration:
 ```
 const request = require('request');
 const Promise = require('bluebird');
@@ -29,7 +28,7 @@ const client = require('../sdk/index.js')(apiClientOptions);
 The above configuration parameters are *required*.
 **Note that the 'requestFn' must be promisified**
 
-### Advanced configuration:
+### advanced configuration:
 
 This client can use multiple request engines to make requests to the API. This
 allows the COINS team to use the client for its integration tests as well as
@@ -39,7 +38,7 @@ the parameters that the client will feed to the request engine. If you are using
 `nodeapi/test/utils/init-api-client` for an example of how to configure the
 client to use *hapi server.injectThen*.
 
-# Usage
+## usage
 
 Once you have a configured client, you can use the following methods to interact
 with the COINS API:
