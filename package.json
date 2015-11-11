@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MRN-Code/tails.git"
+    "url": "git+https://github.com/MRN-Code/halfpenny.git"
   },
   "author": "cdaringe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MRN-Code/tails/issues"
+    "url": "https://github.com/MRN-Code/halfpenny/issues"
   },
-  "homepage": "https://github.com/MRN-Code/tails#readme",
+  "homepage": "https://github.com/MRN-Code/halfpenny#readme",
   "devDependencies": {
     "precommit-hook": "^3.0.0"
   },
