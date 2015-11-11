@@ -1,0 +1,40 @@
+{
+  "name": "halfpenny",
+  "version": "0.0.0",
+  "description": "Official javascript COINS API client. Nodejs and Browser compatible!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'run integration tests in nodeapi'",
+    "preversion": "git checkout master && git pull && npm ls",
+    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
+    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
+    "lint": "jshint .",
+    "validate": "npm ls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MRN-Code/tails.git"
+  },
+  "author": "cdaringe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MRN-Code/tails/issues"
+  },
+  "homepage": "https://github.com/MRN-Code/tails#readme",
+  "devDependencies": {
+    "precommit-hook": "^3.0.0"
+  },
+  "dependencies": {
+    "btoa": "^1.1.2",
+    "dom-storage": "^2.0.1",
+    "es6-object-assign": "^1.0.1",
+    "hawk": "^4.0.0",
+    "rename-keys": "^1.1.2"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
+}
