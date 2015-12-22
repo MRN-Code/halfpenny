@@ -10,6 +10,7 @@
             'rename-keys',
             './authentication',
             './scans',
+            './scan-details',
             './users',
             './coinstac/consortia'
         ], function(
@@ -18,6 +19,7 @@
             rename,
             authentication,
             scans,
+            scanDetails,
             users,
             consortia
         ) {
@@ -28,6 +30,7 @@
                 localStorage,
                 authentication,
                 scans,
+                scanDetails,
                 users,
                 consortia
             );
@@ -53,6 +56,7 @@
             storage,
             require('./authentication'),
             require('./scans'),
+            require('./scan-details'),
             require('./users'),
             require('./coinstac/consortia')
         );
@@ -66,6 +70,7 @@
             root.localStorage,
             root.CoinsApiClient.authentication,
             root.CoinsApiClient.scans,
+            root.CoinsApiClient.scanDetails,
             root.CoinsApiClient.users,
             root.CoinsApiClient.coinstac.consortia
         );
@@ -79,6 +84,7 @@
     localStorage,
     authentication,
     scans,
+    scanDetails,
     users,
     consortia
 ) {
@@ -232,6 +238,7 @@
         me.getAuthCredentials = getAuthCredentials;
         me.auth = authentication(me);
         me.scans = scans(me);
+        me.scanDetails=scanDetails(me);
         me.users = users(me);
         me.coinstac = {
             consortia: consortia(me)
