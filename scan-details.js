@@ -20,7 +20,7 @@
     'use strict';
 
     var me;
-    var baseUri = '/scans/315098/';
+    var baseUri = '/scans/id/';//366998  315098
 
     /**
      * get scans
@@ -31,20 +31,21 @@
      *                           or rejects with an error, where error.data
      *                           contains the full response object
      */
-    function getScanDetails(queryParameters) {
-        queryParameters = queryParameters || {};
+    function getScanDetails(pathParameters) {
+    var  queryParameters = {};
+    baseUri = baseUri.replace("id",pathParameters.scanId);
 
-        var request = {
-            method: 'GET',
-            uri: baseUri,
-            qs: queryParameters
-        };
-
+      var request = {
+          method: 'GET',
+          uri: baseUri,
+          qs: queryParameters
+      };
         return me.makeRequest(request, true)
             .then(function(response) {
                 var err;
                 if (response.statusCode !== 200) {
-                    err = new Error(response.body.error.message);
+                  console.log(response.body);
+                    err = new Error(response.body.message);
                     err.data = response;
                     throw err;
                 } else {
