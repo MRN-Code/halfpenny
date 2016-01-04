@@ -44,7 +44,6 @@
             .then(function(response) {
                 var err;
                 if (response.statusCode !== 200) {
-                  console.log(response.body);
                     err = new Error(response.body.message);
                     err.data = response;
                     throw err;
