@@ -30,7 +30,7 @@ module.exports = {
         new DefinePlugin({
             __NODEAPI_BASEURL__: JSON.stringify('https://coins-api.mrn.org/api')
         }),
-    ].concat(isDev ? [
+    ].concat(!isDev ? [
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
             compress: {
