@@ -33,7 +33,7 @@
      */
     function getScanDetails(pathParameters) {
     var  queryParameters = {};
-    baseUri = baseUri.replace("id",pathParameters.scanId);
+    baseUri = baseUri.replace("id",pathParameters.id);
 
       var request = {
           method: 'GET',
