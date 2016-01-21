@@ -1,3 +1,5 @@
+/* global localStorage */
+
 var getDOMStorage = function() {
     var Storage = require('dom-storage');
     return new Storage(null, { strict: true });
