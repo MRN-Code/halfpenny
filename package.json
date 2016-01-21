@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "btoa": "^1.1.2",
-    "dom-storage": "^2.0.1",
+    "dom-storage": "^2.0.2",
     "es6-object-assign": "^1.0.1",
     "hawk": "^4.0.0",
     "rename-keys": "^1.1.2"
