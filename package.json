@@ -11,7 +11,8 @@
     "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
     "lint": "grunt lint",
     "validate": "npm ls",
-    "postinstall": "grunt build"
+    "build": "grunt build",
+    "commit-build": "git add build/* && git commit -m 'commit build' -n"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,8 @@
   "pre-commit": [
     "lint",
     "validate",
-    "test"
+    "test",
+    "build",
+    "commit-build"
   ]
 }
