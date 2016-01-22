@@ -28,7 +28,7 @@ const client = require('../sdk/index.js')(apiClientOptions);
 The above configuration parameters are *required*.
 **Note that the 'requestFn' must be promisified**
 
-### advanced configuration:
+### advanced configuration
 
 This client can use multiple request engines to make requests to the API. This
 allows the COINS team to use the client for its integration tests as well as
@@ -65,6 +65,6 @@ Takes a set of request options formatted for the *request* library, and
 modifies the options according to the requestObjectMap before signing the
 request (*if `sign !== false`*) and sending it.
 
-# Examples
+# examples
 
 See `nodeapi/test/integration/keys.js`
