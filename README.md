@@ -65,6 +65,6 @@ Takes a set of request options formatted for the *request* library, and
 modifies the options according to the requestObjectMap before signing the
 request (*if `sign !== false`*) and sending it.
 
-# Examples
+# examples
 
 See `nodeapi/test/integration/keys.js`
