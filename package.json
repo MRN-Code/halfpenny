@@ -1,6 +1,6 @@
 {
   "name": "halfpenny",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Official javascript COINS API client. Nodejs and Browser compatible!",
   "main": "build/halfpenny.bundle.js",
   "scripts": {
