@@ -12,7 +12,7 @@
     "lint": "grunt lint",
     "validate": "npm ls",
     "build": "grunt build",
-    "commit-build": "git add build/* && git commit -m 'commit build' -n"
+    "add-build-to-commit": "git add build/*"
   },
   "repository": {
     "type": "git",
@@ -53,6 +53,6 @@
     "validate",
     "test",
     "build",
-    "commit-build"
+    "add-build-to-commit"
   ]
 }

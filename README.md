@@ -28,7 +28,7 @@ const client = require('../sdk/index.js')(apiClientOptions);
 The above configuration parameters are *required*.
 **Note that the 'requestFn' must be promisified**
 
-### advanced configuration:
+### advanced configuration
 
 This client can use multiple request engines to make requests to the API. This
 allows the COINS team to use the client for its integration tests as well as
