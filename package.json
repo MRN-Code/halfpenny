@@ -1,18 +1,18 @@
 {
   "name": "halfpenny",
-  "version": "0.0.5",
-  "description": "Official javascript COINS API client. Nodejs and Browser compatible!",
-  "main": "build/halfpenny.bundle.js",
+  "version": "1.0.0",
+  "description": "Official javascript COINS API client. Not browser compatible!",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo 'run integration tests in nodeapi'",
     "preversion": "git checkout master && git pull && npm ls",
     "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
     "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
     "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
-    "lint": "grunt lint",
-    "validate": "npm ls",
-    "build": "grunt build",
-    "add-build-to-commit": "git add build/*"
+    "lint": "jscs",
+    "postlint": "jshint",
+    "test": "node src/test.js",
+    "validate": "npm ls"
   },
   "repository": {
     "type": "git",
@@ -25,34 +25,15 @@
   },
   "homepage": "https://github.com/MRN-Code/halfpenny#readme",
   "devDependencies": {
-    "babel-core": "^6.3.21",
-    "babel-loader": "^6.2.0",
-    "babel-plugin-transform-runtime": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13",
-    "coins-grunt-env": "^1.0.2",
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.11.3",
-    "grunt-env": "^0.4.4",
-    "grunt-exec": "^0.4.6",
-    "grunt-jscs": "^2.3.0",
-    "load-grunt-config": "^0.19.0",
-    "load-grunt-tasks": "^3.3.0",
-    "precommit-hook": "^3.0.0",
-    "time-grunt": "^1.2.2",
-    "webpack": "^1.12.4"
+    "axios": "0.9.1",
+    "dom-storage": "2.0.2"
   },
   "dependencies": {
-    "btoa": "^1.1.2",
-    "dom-storage": "^2.0.2",
-    "es6-object-assign": "^1.0.1",
-    "hawk": "^4.0.0",
-    "rename-keys": "^1.1.2"
   },
   "pre-commit": [
     "lint",
     "validate",
     "test",
-    "build",
     "add-build-to-commit"
   ]
 }
