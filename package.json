@@ -1,17 +1,16 @@
 {
   "name": "halfpenny",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Official javascript COINS API client. Not browser compatible!",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo 'run integration tests in nodeapi'",
+    "test": "node src/test.js",
     "preversion": "git checkout master && git pull && npm ls",
     "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
     "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
     "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
     "lint": "jscs",
     "postlint": "jshint",
-    "test": "node src/test.js",
     "validate": "npm ls"
   },
   "repository": {
@@ -28,8 +27,7 @@
     "axios": "0.9.1",
     "dom-storage": "2.0.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "pre-commit": [
     "lint",
     "validate",
