@@ -37,7 +37,7 @@ object with properties corresponding to each method exposed by an API endpoint
 
 ## examples
 
-```
+```js
 const agent = require('axios');
 const DomStorage = require('dom-storage');
 const store = new DomStorage('/path/to/file', {strict: true});
@@ -46,7 +46,7 @@ const apiClientOptions = {
     baseUrl: 'http://localhost:8800', // hostname:port of nodeapi service
     store: store
 };
-const clientReady = ('halfpenny')(apiClientOptions)
+const clientReady = require('halfpenny')(apiClientOptions)
     .catch((err) => {
         //whoops
     });
