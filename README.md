@@ -5,10 +5,6 @@ What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decim
 ## alpha warning
 halfpenny is still in active development!  it is not ready for public usage!
 
-### TODO:
-* support UMD and browser compatibility.
-* Auto-generate documentation from API client
-
 ## peer dependencies
 
 ### axios
@@ -16,17 +12,17 @@ A HTTP request agent is required to retrieve the Client source code and to make
 requests. Axios was chosen as that client in order to support both server and
 browser environments.
 
-### localstorage
+### storage
 In order to persist data to disk, a localstorage interface is required. In the
 browser, this means supplying `window.localStorage` in the browser, and using
 `node-localstorage` or `dom-storage` on the server.
 
-## basic configuration:
+## basic configuration
 *See examples*
 The above configuration parameters are *required*.
 **Note that the 'requestFn' must be promisified**
 
-## How it works:
+## how it works
 
 The source code for the client is auto-generated during the build process of the
 API itself. The API then bundles and serves the source code from `/client/client.js`.
@@ -63,3 +59,16 @@ clientReady.then((client) => {
 ```
 
 See `nodeapi/test/integration` for more
+
+## todo
+* support UMD and browser compatibility.
+* Auto-generate documentation from API client
+
+## changelog
+- 2.x
+  - convert to auto-generated api client, built from server API spec
+  - remove browser support temporarily
+- 1.x
+  - commonjs-ify
+- 0.x
+  - init
