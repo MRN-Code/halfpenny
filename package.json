@@ -1,6 +1,6 @@
 {
   "name": "halfpenny",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Official javascript COINS API client. Not browser compatible!",
   "main": "src/index.js",
   "scripts": {
