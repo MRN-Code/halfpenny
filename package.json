@@ -4,14 +4,18 @@
   "description": "Official javascript COINS API client. Not browser compatible!",
   "main": "src/index.js",
   "scripts": {
-    "test": "node src/test.js",
+    "test": "istanbul cover test/",
+    "posttest": "istanbul check --statements 90 --functions 90 --branches 90",
+    "lint": "eslint src/ test/",
+    "lintfix": "eslint --fix src/ test/",
+    "validate": "npm ls",
     "preversion": "git checkout master && git pull && npm ls",
+    "docs": "mkdir -p docs && jsdoc -t ./node_modules/minami -d docs -R README.md -r src/",
+    "deploy-docs": "gh-pages -d docs && rm -rf docs",
+    "postpublish": "npm run docs && npm run deploy-docs",
     "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
     "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
-    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish",
-    "lint": "jscs",
-    "postlint": "jshint",
-    "validate": "npm ls"
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish"
   },
   "repository": {
     "type": "git",
@@ -24,14 +28,24 @@
   },
   "homepage": "https://github.com/MRN-Code/halfpenny#readme",
   "devDependencies": {
-    "axios": "0.9.1",
-    "dom-storage": "2.0.2"
+    "coins-validate": "^2.0.6",
+    "dom-storage": "2.0.2",
+    "eslint": "^2.5.3",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.2.3",
+    "gh-pages": "^0.11.0",
+    "istanbul": "^0.4.2",
+    "jsdoc": "^3.4.0",
+    "minami": "^1.1.1",
+    "tape": "^4.5.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "axios": "^0.9.1"
+  },
   "pre-commit": [
     "lint",
     "validate",
-    "test",
-    "add-build-to-commit"
+    "test"
   ]
 }

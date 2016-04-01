@@ -2,9 +2,6 @@
 
 What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decimal_coin)), anyway?  Beyond an old-timey coin (AKA a pence), halfpenny is the official javascript API client for the COINS platform.
 
-## alpha warning
-halfpenny is still in active development!  it is not ready for public usage!
-
 ## peer dependencies
 
 ### axios
