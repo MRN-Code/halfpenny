@@ -28,7 +28,10 @@
   },
   "homepage": "https://github.com/MRN-Code/halfpenny#readme",
   "devDependencies": {
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4",
     "coins-validate": "^2.0.6",
+    "coveralls": "^2.11.9",
     "dom-storage": "2.0.2",
     "eslint": "^2.5.3",
     "eslint-config-airbnb": "^6.2.0",
@@ -37,7 +40,8 @@
     "istanbul": "^0.4.2",
     "jsdoc": "^3.4.0",
     "minami": "^1.1.1",
-    "tape": "^4.5.1"
+    "tape": "^4.5.1",
+    "webpack": "^1.12.14"
   },
   "dependencies": {
     "async": "^2.0.0-rc.2",

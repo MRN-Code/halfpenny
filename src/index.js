@@ -115,7 +115,11 @@ module.exports = {
     const options = this._applyDefaults(opts);
     this._assertOptions(options);
     return async.waterfall([
-      (cb1) => options.xhrAgent.get(options.clientUrl, cb1),
+      (cb1) => {
+        options.xhrAgent.get(options.clientUrl)
+        .then(r => cb1(null, r))
+        .catch(cb1);
+      },
       (response, cb2) => { // eslint-disable-line
         return Promise.resolve()
         .then(() => this._extractClientSrc(response))

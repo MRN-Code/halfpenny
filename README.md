@@ -1,18 +1,29 @@
-# halfpenny // COINS API Javascript client
+# halfpenny
 
-What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decimal_coin)), anyway?  Beyond an old-timey coin (AKA a pence), halfpenny is the official javascript API client for the COINS platform.
+[ ![Codeship Status for MRN-Code/halfpenny](https://codeship.com/projects/233242e0-d9e4-0133-38b5-0ae147979a90/status?branch=master)](https://codeship.com/projects/143661)
+[![Coverage Status](https://coveralls.io/repos/github/MRN-Code/halfpenny/badge.svg?branch=master)](https://coveralls.io/github/MRN-Code/halfpenny?branch=master)
+
+_The official COINS API Javascript client_
+
+What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decimal_coin)), anyway?  Beyond an old-timey coin (AKA a pence), halfpenny is the official javascript API client for the COINS platform.  halfpenny works in the browser and in nodejs.
+
+# usage
+
+```js
+const hp = require('halfpenny')
+const client = hp.factory({}, (client) => {
+  client.auth.login('username', 'password');
+  client.ScansApi.get(null, 'M87100000');
+});
+```
+
+@NOTE, halfpenny is written in node-style commonjs.  Therefore, if you are using it in the browser, make sure you are bundling it with browserify/webpack/etc!  We do not provide a bundled version on your behalf.
 
 ## peer dependencies
 
-### axios
-A HTTP request agent is required to retrieve the Client source code and to make
-requests. Axios was chosen as that client in order to support both server and
-browser environments.
-
 ### storage
 In order to persist data to disk, a localstorage interface is required. In the
-browser, this means supplying `window.localStorage` in the browser, and using
-`node-localstorage` or `dom-storage` on the server.
+browser, this will default to `window.localStorage`.  If you use nodejs, you must pass in `localStorage` like interface, such as `node-localstorage` or `dom-storage`.
 
 ## basic configuration
 *See examples*
@@ -27,33 +38,6 @@ API itself. The API then bundles and serves the source code from `/client/client
 This package retrieves the bundled source code and evaluates it. The result is an
 object with properties corresponding to each method exposed by an API endpoint
 (e.g. `ScansApi.get()`).
-
-## examples
-
-```js
-const agent = require('axios');
-const DomStorage = require('dom-storage');
-const store = new DomStorage('/path/to/file', {strict: true});
-const apiClientOptions = {
-    xhrAgent: agent,
-    baseUrl: 'http://localhost:8800', // hostname:port of nodeapi service
-    store: store
-};
-const clientReady = require('halfpenny')(apiClientOptions)
-    .catch((err) => {
-        //whoops
-    });
-
-// login
-clientReady.then((client) => {
-    return client.auth.login('username', 'password');
-});
-
-// get scans
-clientReady.then((client) => {
-    return client.ScansApi.get(null, 'M87100000')
-});
-```
 
 See `nodeapi/test/integration` for more
 

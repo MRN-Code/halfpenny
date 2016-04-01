@@ -41,7 +41,7 @@ test('src evauluation', (t) => {
 
 test('factory', (t) => {
   t.plan(3);
-  axios.get = (url, cb) => cb(null, { data: clientSrcStub }); // manual stubbing! @warning! :)
+  axios.get = () => Promise.resolve({ data: clientSrcStub }); // manual stubbing! @warning! :)
   halfpenny.factory({ store }, (err, client) => {
     if (err) { return t.end(err.message); }
     t.ok(client, 'some object returned from halfpenny.factory');
