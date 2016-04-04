@@ -11,24 +11,31 @@ What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decim
 
 ```js
 const hp = require('halfpenny')
-const client = hp.factory({}, (client) => {
-  client.auth.login('username', 'password');
-  client.ScansApi.get(null, 'M87100000');
+const client = hp.factory({}, (err, client) => {
+  client.auth.login('username', 'pw')
+  .then(resp => console.log(resp.data.data[0].user))
+  .catch(err => console.error(err));
 });
+/**
+{ username: 'drblah',
+  label: 'blah-blah-blah',
+  activeFlag: 'Y',
+  acctExpDate: '2220-01-01T07:00:00.000Z',
+  passwordExpDate: '2220-01-01T07:00:00.000Z',
+  siteId: '99',
+  isSiteAdmin: 'N',
+  email: 'blahblah@mrn.org',
+  emailUnsubscribed: false }
+ */
 ```
 
-@NOTE, halfpenny is written in node-style commonjs.  Therefore, if you are using it in the browser, make sure you are bundling it with browserify/webpack/etc!  We do not provide a bundled version on your behalf.
+halfpenny is written in nodejs-style commonjs.  Therefore, if you are using it in the browser, make sure you are bundling it with browserify/webpack/etc!  We do  provide a bundled version on your behalf.  See `dist/`.
 
 ## peer dependencies
 
 ### storage
-In order to persist data to disk, a localstorage interface is required. In the
-browser, this will default to `window.localStorage`.  If you use nodejs, you must pass in `localStorage` like interface, such as `node-localstorage` or `dom-storage`.
-
-## basic configuration
-*See examples*
-The above configuration parameters are *required*.
-**Note that the 'requestFn' must be promisified**
+In order to persist data to disk, a `localStorage` interface is required. In the
+browser, this will default to `window.localStorage`.  If you use nodejs, you must pass in a `localStorage`-like interface, such as `node-localstorage` or `dom-storage`.
 
 ## how it works
 
@@ -42,10 +49,11 @@ object with properties corresponding to each method exposed by an API endpoint
 See `nodeapi/test/integration` for more
 
 ## todo
-* support UMD and browser compatibility.
 * Auto-generate documentation from API client
 
 ## changelog
+- 3.x
+  - add build, address env incompatibility
 - 2.x
   - convert to auto-generated api client, built from server API spec
   - remove browser support temporarily
