@@ -7,7 +7,7 @@ _The official COINS API Javascript client_
 
 What is a [halfpenny](https://en.wikipedia.org/wiki/Halfpenny_(British_pre-decimal_coin)), anyway?  Beyond an old-timey coin (AKA a pence), halfpenny is the official javascript API client for the COINS platform.  halfpenny works in the browser and in nodejs.
 
-# usage
+## usage
 
 ```js
 const hp = require('halfpenny')
@@ -29,13 +29,10 @@ const client = hp.factory({}, (err, client) => {
  */
 ```
 
-halfpenny is written in nodejs-style commonjs.  Therefore, if you are using it in the browser, make sure you are bundling it with browserify/webpack/etc!  We do  provide a bundled version on your behalf.  See `dist/`.
+halfpenny is written in nodejs-style commonjs.  Therefore, if you are using it in the browser, make sure you are bundling it with browserify/webpack/etc!  We also provide a prebundled browser version on your behalf--see `dist/`.
 
-## peer dependencies
-
-### storage
-In order to persist data to disk, a `localStorage` interface is required. In the
-browser, this will default to `window.localStorage`.  If you use nodejs, you must pass in a `localStorage`-like interface, such as `node-localstorage` or `dom-storage`.
+### storage requirement
+In order to persist data to disk, a `localStorage` interface is required. In the browser, this will default to `window.localStorage`.  If you use nodejs, you must pass in a `localStorage`-like interface, such as `node-localstorage` or `dom-storage`.
 
 ## how it works
 
