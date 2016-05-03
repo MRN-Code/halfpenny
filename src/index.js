@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 
 const async = require('async');
 const defaultBaseUrl = 'https://coins-api.mrn.org';
